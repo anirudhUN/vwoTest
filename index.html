@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Page</title>
+    <title>E-commerce Page - Hide & Show Navigation</title>
     <style>
-        .loader { display: block; }
-        .nav-hidden { display: none; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #top-nav, #left-nav {
+            display: none;
+        }
+        #top-nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        #top-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        #top-nav ul li {
+            display: inline;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+        #left-nav {
+            background-color: #f1f1f1;
+            width: 200px;
+            padding: 20px;
+            float: left;
+            height: calc(100vh - 40px);
+        }
+        #left-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        #left-nav ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
     </style>
     <!-- Start VWO Async SmartCode -->
 <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
@@ -23,8 +79,37 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
 <!-- End VWO Async SmartCode -->
 </head>
 <body>
-    <div id="top-nav" class="nav-hidden">Top Navigation</div>
-    <div id="left-nav" class="nav-hidden">Left Navigation</div>
-    <div class="loader">Loading...</div>
+    <div id="top-nav">
+        <h2>Top Navigation</h2>
+        <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    
+    <div id="left-nav">
+        <h2>Left Navigation</h2>
+        <ul>
+            <li>Category 1</li>
+            <li>Category 2</li>
+            <li>Category 3</li>
+            <li>Category 4</li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h1>Welcome to our E-commerce Store</h1>
+        <p>This is a sample e-commerce page with hide & show navigation functionality.</p>
+        <div class="loader" id="loader"></div>
+    </div>
+    
+    <script>
+        // Default state: Loader is shown, navigation bars are hidden
+        document.getElementById('loader').style.display = 'block';
+        document.getElementById('top-nav').style.display = 'none';
+        document.getElementById('left-nav').style.display = 'none';
+    </script>
 </body>
 </html>
