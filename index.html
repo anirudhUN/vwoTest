@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce Page - Hide & Show Navigation</title>
+    <!-- VWO SmartCode -->
+    <script type="text/javascript">
+        (function(a,b,c,d,e){a[c]=a[c]||function(){(a[c].q=a[c].q||[]).push(arguments)};
+        b=d.createElement("script"),b.async=1,b.src=e;
+        d.getElementsByTagName("head")[0].appendChild(b)})(window,document,"_vwo_code",document,"https://dev.visualwebsiteoptimizer.com/include.js");
+    </script>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f9f9f9;
         }
+        /* Loader Styles */
         .loader {
             border: 5px solid #f3f3f3;
             border-top: 5px solid #3498db;
@@ -17,99 +26,107 @@
             width: 50px;
             height: 50px;
             animation: spin 1s linear infinite;
-            margin: 20px auto;
+            margin: 100px auto;
+            display: none; /* Hide by default, show while content is loading */
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* Navigation Styles */
         #top-nav, #left-nav {
-            display: none;
+            display: none; /* Hidden by default */
         }
         #top-nav {
-            background-color: #333;
+            background-color: #2c3e50;
             color: white;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
         }
         #top-nav ul {
             list-style: none;
+            margin: 0;
             padding: 0;
         }
         #top-nav ul li {
-            display: inline;
-            margin-right: 20px;
+            display: inline-block;
+            margin: 0 15px;
             font-size: 18px;
+            cursor: pointer;
         }
         #left-nav {
-            background-color: #f1f1f1;
+            background-color: #ecf0f1;
             width: 200px;
             padding: 20px;
-            float: left;
-            height: calc(100vh - 40px);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
         }
         #left-nav ul {
             list-style: none;
+            margin: 0;
             padding: 0;
         }
         #left-nav ul li {
-            margin-bottom: 10px;
+            margin: 15px 0;
             font-size: 18px;
+            cursor: pointer;
+            color: #2c3e50;
         }
+        /* Content Styles */
         .content {
-            margin-left: 220px;
+            margin: 100px 20px 20px 220px; /* Adjust margin when left-nav is visible */
             padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        h1 {
-            color: #333;
+        .content h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #7f8c8d;
         }
     </style>
-    <!-- Start VWO Async SmartCode -->
-<link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
-<script type='text/javascript' id='vwoCode'>
-window._vwo_code || (function() {
-var account_id=950345,
-version=2.1,
-settings_tolerance=2000,
-hide_element='body',
-hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;transition:none !important;',
-/* DO NOT EDIT BELOW THIS LINE */
-f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={nonce:v&&v.nonce,use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}v&&t.setAttribute('nonce',v.nonce);d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var n=this.getSettings(),i=d.createElement('script'),r=this;t=t||{};if(n){i.textContent=n;d.getElementsByTagName('head')[0].appendChild(i);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200||o.status===304){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var n=this.hide_element(),i=n?n+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=i;else t.appendChild(d.createTextNode(i));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var i=d.createElement('div');i.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';i.setAttribute('id','_vis_opt_path_hides');i.classList.add('_vis_hide_layer');t.parentNode.insertBefore(i,t.nextSibling)}var o=window._vis_opt_url||d.URL,s='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(o)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:s})}else{this.load(s+'&x=true')}}};w._vwo_code=code;code.init();})();
-</script>
-<!-- End VWO Async SmartCode -->
 </head>
 <body>
+    <!-- Loader -->
+    <div class="loader" id="loader"></div>
+
+    <!-- Top Navigation -->
     <div id="top-nav">
-        <h2>Top Navigation</h2>
         <ul>
             <li>Home</li>
             <li>Products</li>
-            <li>About</li>
+            <li>Services</li>
+            <li>About Us</li>
             <li>Contact</li>
         </ul>
     </div>
-    
+
+    <!-- Left Navigation -->
     <div id="left-nav">
-        <h2>Left Navigation</h2>
+        <h2>Categories</h2>
         <ul>
-            <li>Category 1</li>
-            <li>Category 2</li>
-            <li>Category 3</li>
-            <li>Category 4</li>
+            <li>Electronics</li>
+            <li>Fashion</li>
+            <li>Home & Garden</li>
+            <li>Sports</li>
+            <li>Health & Beauty</li>
         </ul>
     </div>
-    
-    <div class="content">
-        <h1>Welcome to our E-commerce Store</h1>
-        <p>This is a sample e-commerce page with hide & show navigation functionality.</p>
-        <div class="loader" id="loader"></div>
+
+    <!-- Main Content -->
+    <div class="content" id="main-content">
+        <h1>Welcome to Our E-commerce Store</h1>
+        <p>
+            Discover a wide range of products across various categories at unbeatable prices. Enjoy seamless shopping experience with fast delivery and excellent customer service.
+        </p>
     </div>
-    
-    <script>
-        // Default state: Loader is shown, navigation bars are hidden
-        document.getElementById('loader').style.display = 'block';
-        document.getElementById('top-nav').style.display = 'none';
-        document.getElementById('left-nav').style.display = 'none';
-    </script>
 </body>
 </html>
